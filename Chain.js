@@ -1,0 +1,28 @@
+class Slingshot{
+    constructor(bodyA,pointB){
+        var props={
+            //our bodyA is bird's body
+            bodyA:bodyA,
+            pointB:pointB,
+            //stiffness: 0.05,
+            length: 10
+        }
+        this.pointB=pointB;
+        this.slingshot=Constraint.create(props);
+        World.add(world,this.slingshot);
+    }
+    fly(){
+        this.slingshot.bodyA=null;
+    }
+    display(){
+        if(this.slingshot.bodyA){
+
+        var pointA=this.slingshot.bodyA.position;
+        var pointB=this.pointB;
+        push();
+        strokeWeight(5);
+        line(pointA.x,pointA.y,pointB.x,pointB.y);
+        pop();
+        }
+    }
+}
